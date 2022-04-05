@@ -1,8 +1,11 @@
 import csv
+from lib2to3.pgen2.token import LESSEQUAL
 import os
 import math
-from re import X
-import pandas as pd
+from telnetlib import theNULL
+from tracemalloc import stop
+
+
 
 
 #path
@@ -13,7 +16,7 @@ path = os.path.join("Resources","budget_data.csv")
 months = []
 profits_loss = []
 
-#values
+#initialized value
 #total_months = 0
 #Total_loss = 0
 
@@ -46,20 +49,25 @@ total_months = len(months)
 
 
 
-#* The changes in "Profit/Losses" over the entire period, and then the average of those changes
-
 #calculate change
-#current line - next line = current_value 
-    # then subtract next line
-    # =
-# change is the current(profit_loss) loss - previous loss
-#previous_loss = 
-#next_line = X
-#current_value = profit_loss - next_line
+# # find the current, find the next, subtract, save the delta
+    # current number
+    #print(profits_loss[x])
 
-#profit_change = int(current) - int(previous_loss)
-#print(profit_change)
+    # next number
 
+   # profit_loss[x] = profits_loss[x] - 1
+    #print(profits_loss)
+
+# for x in range(len(profits_loss)):
+#     if x > range(len(int(profits_loss))):
+#         print(profits_loss[x+1] - profits_loss[x])
+#         current_change = profits_loss[x+1] - profits_loss[x] 
+#         # print(sum(current_change) / len(profits_loss))
+        
+
+
+   
 
 #* The greatest increase in profits (date and amount) over the entire period
 #print(max(profits_loss))
@@ -79,6 +87,12 @@ print('Financial Analysis')
 print("-------------------")
 print(f"Total Months: {total_months}")
 print(f'Total: ${sum(profits_loss)}')
-#print(f'Average Change:'${})
+#print(f'Average Change:${(sum(current_change) / len(profits_loss))}')
 print(f'Greatest Increase in Profits: Mar-13 {greatest_increase}')
 print(f'Greatest Decrease in Profits: Dec-10 {greatest_decrease}')
+
+
+
+# first iteration: profits_loss[0+1] - profits_loss[0]
+# second iteration: profits_loss[1+1] - profits_loss[1]
+
